@@ -1,64 +1,64 @@
-body{
-    background-size: 30% auto ;
-    background-position: center;
-    color: white;
-    height: 100vh;
+body {
+  background-size: 30% auto;
+  background-position: center;
+  color: white;
+  height: 100vh;
 }
 
-
-#content{
-    text-align: center;
-    margin-top: 5%;
-    padding: 10px;
-    background-color: #ffffffbf;
-    opacity: .9;
-    color: blue;
+#content {
+  text-align: center;
+  margin-top: 5%;
+  padding: 10px;
+  background-color: #ffffffbf;
+  opacity: 0.9;
+  color: blue;
 }
 
-.row{
-    margin: auto 0;
+.row {
+  margin: auto 0;
 }
 
-html{
-    height: 100%;
+html {
+  height: 100%;
 }
-.card-content{
-    height: 120px;
-    font-size: 85px;
-    position: absolute;
-}
-
-.card-image{
-    height: 120px;
-    width: 100%;
+.card-content {
+  height: 120px;
+  font-size: 85px;
+  position: absolute;
 }
 
-.card{
-    position: relative;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 85px;
-    color: white;
+.card-image {
+  height: 120px;
+  width: 100%;
 }
 
-.card-flip{
-    perspective:100px ;
+.card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 85px;
+  color: white;
 }
 
-.flip{
-    transform: rotatteY(100deg);
+.card-flip {
+  perspective: 100px;
 }
-.front , .back{
-    backface-visibility :hidden;
-    position: aboslute;
-    top: 0;
-    left: 0;
+
+.flip {
+  transform: rotateY(100deg);
 }
-.front{
-    z-index: 2;
-    transform: rotateY(0deg);
+.front,
+.back {
+  backface-visibility: hidden;
+  position: aboslute;
+  top: 0;
+  left: 0;
 }
-.back{
-    transform: rotateY(180deg);
+.front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+.back {
+  transform: rotateY(180deg);
 }
