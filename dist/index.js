@@ -130,7 +130,7 @@ prepare.cards.forEach((el, index) => {
         <div id="card-flip-${index}"  style =" "  >
           <div class="front">
             <div class="card">
-              <img  src="../assets/images/back.jpg" alt="" class="card-image" />
+              <img  src="./assets/images/back.jpg" alt="" class="card-image" />
               <span class="card-content text-black ">${index + 1}</span>
             </div>
           </div>
