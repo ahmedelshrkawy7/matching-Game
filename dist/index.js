@@ -76,7 +76,7 @@ const SelectedCard = (card, index) => {
         prepare.selectedCard_1 = null;
         prepare.selectedCard_2 = null;
 
-      }, 1000);
+      }, 500);
     }
   }
 };
@@ -118,11 +118,14 @@ for (let i = 0; i < numberOfCards / 2; i++) {
     index: i,
   });
 }
+ 
+console.log(prepare.cards);
+
 prepare.cards.sort((a, b) => a.id - b.id);
 
 prepare.cards.forEach((el, index) => {
   cardsHmtlContent += `
-     <span class="col-sm-3 col-lg-2 mt-4 " >
+     <span class=" mt-4 " >
       <div onclick="toggleFlip(${index})" class="card-flip-${index} card  ">
         <div id="card-flip-${index}"  style =" "  >
           <div class="front">

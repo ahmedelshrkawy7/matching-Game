@@ -22,13 +22,13 @@ html {
   height: 100%;
 }
 .card-content {
-  height: 120px;
+  height: 150px;
   font-size: 85px;
   position: absolute;
 }
 
 .card-image {
-  height: 120px;
+  height: 100%;
   width: 100%;
 }
 
@@ -40,7 +40,7 @@ html {
   align-items: center;
   font-size: 85px;
   color: white;
-  height: 120px;
+  height: 160px;
   width: 100%;
 }
 

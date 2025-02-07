@@ -5,3 +5,5 @@ export interface Icard{
     clickapble:boolean;
     index:number;
 }
+
+// objects => 
