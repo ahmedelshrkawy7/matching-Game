@@ -4,8 +4,10 @@ const prepare = {};
 prepare.cards = [];
 prepare.progress = 0;
 prepare.fullTrack = new Audio("./assets/1.wav");
-prepare.failAudio = new Audio("./assets/1.wav");
-prepare.goodAudio = new Audio("./assets/1.wav");
+prepare.failAudio = new Audio("./assets/fail.wav");
+prepare.goodAudio = new Audio("./assets/success.wav");
+prepare.flipAudio = new Audio("./assets/flip.wav");
+
 prepare.gameOverAudio = new Audio("./assets/1.wav");
 prepare.fullTrack.loop = true;
 const numberOfCards = 20;
@@ -29,19 +31,18 @@ const getRandomInt = (min, max) => {
   return result;
 };
 const toggleFlip = (index) => {
-  //   prepare.fullTrack.play();
+    prepare.flipAudio.play();
   const card = prepare.cards[index];
-  console.log("🚀 ~ toggleFlip ~ card:", card);
   if (!card.flip && card.clickapble) {
     flip(card, index);
     SelectedCard(card, index);
   }
 };
 const flip = (card, index) => {
-  console.log("🚀 ~ flip ~ card:", card);
   if (card) {
     card.flip = card.flip === "" ? "flip" : "";
-    document.getElementById(`card-flip-${index}`).classList.value = card.flip;
+    console.log("🚀 ~ flip ~ card:", card);
+    document.querySelector(`#card-flip-${index}`).classList.value = card.flip;
   }
 };
 const SelectedCard = (card, index) => {
@@ -49,11 +50,9 @@ const SelectedCard = (card, index) => {
   if (!prepare.selectedCard_1) {
     prepare.selectedCard_1 = card;
     prepare.selectedIndex_1 = index;
-    console.log("🚀 ~ SelectedCard ~ selectedCard_1:", prepare.selectedCard_1);
   } else if (!prepare.selectedCard_2) {
     prepare.selectedCard_2 = card;
     prepare.selectedIndex_2 = index;
-    console.log("🚀 ~ SelectedCard ~ selectedCard_2:", prepare.selectedCard_2);
   }
   if (prepare.selectedCard_1 && prepare.selectedCard_2) {
     if (prepare.selectedCard_1.src === prepare.selectedCard_2.src) {
@@ -66,11 +65,17 @@ const SelectedCard = (card, index) => {
       prepare.goodAudio.play();
       checkFinish();
     } else {
+
       setTimeout(() => {
         stopAudio(prepare.failAudio);
         stopAudio(prepare.goodAudio);
         prepare.failAudio.play();
         // toggleFlip();
+        flip(prepare.selectedCard_1, prepare.selectedIndex_1)
+        flip(prepare.selectedCard_2, prepare.selectedIndex_2)
+        prepare.selectedCard_1 = null;
+        prepare.selectedCard_2 = null;
+
       }, 1000);
     }
   }
@@ -117,18 +122,18 @@ prepare.cards.sort((a, b) => a.id - b.id);
 
 prepare.cards.forEach((el, index) => {
   cardsHmtlContent += `
-     <span class="col-sm-3 col-lg-2">
-      <div onclick="toggleFlip(${index})" class="card-flip-${index}">
-        <div id="card-flip-${index}">
+     <span class="col-sm-3 col-lg-2 mt-4 " >
+      <div onclick="toggleFlip(${index})" class="card-flip-${index} card  ">
+        <div id="card-flip-${index}"  style =" "  >
           <div class="front">
             <div class="card">
-              <img src="${el.src}" alt="" class="card-image" />
-              <span class="card-content">${index + 1}</span>
+              <img  src="../assets/images/back.jpg" alt="" class="card-image" />
+              <span class="card-content text-black ">${index + 1}</span>
             </div>
           </div>
           <div class="back">
             <div class="card">
-              <img src="" alt="./assets/images/1.png" class="card-image" style=" height:120px; width:100%; display"block; " />
+              <img src="${el.src}" alt="./assets/images/1.png" class="card-image" style=" height:120px; width:100%; display"block; " />
             </div>
           </div>
         </div>

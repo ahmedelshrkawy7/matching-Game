@@ -36,9 +36,12 @@ html {
   position: relative;
   display: flex;
   justify-content: center;
+  transition: 4s;
   align-items: center;
   font-size: 85px;
   color: white;
+  height: 120px;
+  width: 100%;
 }
 
 .card-flip {
@@ -46,19 +49,32 @@ html {
 }
 
 .flip {
-  transform: rotateY(100deg);
+  /* transform: rotateY(100deg); */
+  transition:  10s;
 }
+
+
+.flip .front{
+  transform: rotateY(90deg);
+
+}
+.flip .back{
+  transform: rotateY(1800deg);
+
+}
+
 .front,
 .back {
   backface-visibility: hidden;
-  position: aboslute;
+  position: absolute;
+  width: 100%;
   top: 0;
   left: 0;
 }
 .front {
   z-index: 2;
-  transform: rotateY(0deg);
+  /* transform: rotateY(0deg); */
 }
 .back {
-  transform: rotateY(180deg);
+  transform: rotateY(90deg);
 }
